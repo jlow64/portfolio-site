@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/fonts": ["./styles/fonts"],
+      "@/styles": ["./src/styles"],
+      "@/components": ["./src/components"],
       "@/constants": ["./constants"]
     }
   },

@@ -4,3 +4,9 @@
   justify-content: space-evenly;
   min-height: 100vh;
 }
+
+.pageContainer {
+  flex: 1;
+  padding: 6rem;
+  min-width: 30vw;
+}
