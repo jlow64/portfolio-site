@@ -105,7 +105,11 @@
 
 .pageContainer {
   flex: 1;
-  display: flex;
   padding: 6rem;
-  border: 1px solid blue;
+  min-width: 30vw;
+}
+
+.charges {
+  cursor: pointer;
+  opacity: 0;
 }
