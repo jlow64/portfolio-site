@@ -10,7 +10,14 @@ export default function Resume() {
       className={`${styles.main} ${plusJakarta.variable} ${oswald.variable}`}
     >
       <Navbar />
-      <div className={styles.pageContainer}>resume content goes here</div>
+      <div className={styles.pageContainer}>
+        <embed
+          src="JustinLowPublicCV.pdf"
+          type="application/pdf"
+          height="100%"
+          width="100%"
+        />
+      </div>
     </main>
   );
 }

@@ -7,6 +7,8 @@
 
 .pageContainer {
   flex: 1;
-  padding: 6rem;
-  min-width: 30vw;
+  padding: 10%;
+  max-width: 60vw;
+  min-width: 60vw;
+  font-family: var(--font-oswald);
 }

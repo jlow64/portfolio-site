@@ -6,7 +6,6 @@
 }
 
 .pageContainer {
-  flex: 1;
-  padding: 6rem;
-  min-width: 30vw;
+  max-width: 60vw;
+  min-width: 60vw;
 }

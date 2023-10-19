@@ -3,8 +3,9 @@
 import gsap from 'gsap';
 import { useRef, useLayoutEffect } from 'react';
 import Image from 'next/image';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { useRouter, usePathname } from 'next/navigation';
-import { animations } from '@/constants';
+import { miniAnimations } from '@/constants';
 import styles from './navbar.module.css';
 
 const Navbar = () => {
@@ -13,43 +14,38 @@ const Navbar = () => {
   const powerCharge = useRef(null);
   const frenzyCharge = useRef(null);
   const enduranceCharge = useRef(null);
+  const pathName = usePathname();
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap
-        .timeline()
-        .fromTo(
-          enduranceCharge.current,
-          animations.enduranceCharge.a1,
-          animations.enduranceCharge.a2,
-        )
-        .to(enduranceCharge.current, animations.enduranceCharge.a3)
-        .to(enduranceCharge.current, animations.enduranceCharge.a4)
-        .repeat(-1);
-      gsap
-        .timeline()
-        .fromTo(
-          powerCharge.current,
-          animations.powerCharge.a1,
-          animations.powerCharge.a2,
-        )
-        .to(powerCharge.current, animations.powerCharge.a3)
-        .to(powerCharge.current, animations.powerCharge.a4)
-        .repeat(-1);
-      gsap
-        .timeline()
-        .fromTo(
-          frenzyCharge.current,
-          animations.frenzyCharge.a1,
-          animations.frenzyCharge.a2,
-        )
-        .to(frenzyCharge.current, animations.frenzyCharge.a3)
-        .to(frenzyCharge.current, animations.frenzyCharge.a4)
-        .repeat(-1);
+      if (pathName !== '/') {
+        gsap
+          .timeline()
+          .fromTo(
+            enduranceCharge.current,
+            miniAnimations.enduranceCharge.a1,
+            miniAnimations.enduranceCharge.a2,
+          );
+        gsap
+          .timeline()
+          .fromTo(
+            powerCharge.current,
+            miniAnimations.powerCharge.a1,
+            miniAnimations.powerCharge.a2,
+          );
+        gsap
+          .timeline()
+          .fromTo(
+            frenzyCharge.current,
+            miniAnimations.frenzyCharge.a1,
+            miniAnimations.frenzyCharge.a2,
+          );
+      }
     }, app);
 
     return () => ctx.revert();
   });
+
   return (
     <div className={styles.navContainer}>
       <header className={styles.header}>
@@ -58,52 +54,77 @@ const Navbar = () => {
       </header>
       <li className={styles.menuList}>
         <ul
-          className={styles.menuItem}
-          onClick={() => router.push('/portfolio')}
+          className={`${styles.menuItem} ${
+            usePathname() === '/about' && styles.isActive
+          }`}
+          onClick={() => router.push('/about')}
         >
-          Portfolio
-        </ul>
-        <ul className={styles.menuItem} onClick={() => router.push('/about')}>
           About
         </ul>
-        <ul className={styles.menuItem} onClick={() => router.push('/resume')}>
+        <ul
+          className={`${styles.menuItem} ${
+            usePathname() === '/experience' && styles.isActive
+          }`}
+          onClick={() => router.push('/experience')}
+        >
+          Experience
+        </ul>
+        <ul
+          className={`${styles.menuItem} ${
+            usePathname() === '/resume' && styles.isActive
+          }`}
+          onClick={() => router.push('/resume')}
+        >
           Resume
         </ul>
       </li>
-      <p className={styles.description}>
+      {/* <p className={styles.description}>
         Hi there, I’m a software developer and I like exploring and creating
         cool things on web apps. When I’m not doing that, I’m doing Muay Thai or
         Gym. Currently searching for my next gig
-      </p>
-      {usePathname() !== '/' ? (
-        <section className={styles.miniChargeContainer}>
-          <Image
-            className={styles.charges}
-            src="/images/endurance-charge.svg"
-            ref={enduranceCharge}
-            width={100}
-            height={100}
-            alt="endurance charge"
-          />
-          <Image
-            className={styles.charges}
-            src="/images/power-charge.svg"
-            ref={powerCharge}
-            width={100}
-            height={100}
-            alt="power charge"
-          />
-          <Image
-            className={styles.charges}
-            src="/images/frenzy-charge.svg"
-            ref={frenzyCharge}
-            width={100}
-            height={100}
-            alt="frenzy charge"
-          />
-        </section>
-      ) : null}
-      <div className={styles.contactSection}>LinkedIn, Github</div>
+      </p> */}
+      <section className={styles.miniChargeContainer}>
+        <Image
+          className={styles.charges}
+          src="/images/endurance-charge.svg"
+          ref={enduranceCharge}
+          width={100}
+          height={100}
+          alt="endurance charge"
+        />
+        <Image
+          className={styles.charges}
+          src="/images/power-charge.svg"
+          ref={powerCharge}
+          width={100}
+          height={100}
+          alt="power charge"
+        />
+        <Image
+          className={styles.charges}
+          src="/images/frenzy-charge.svg"
+          ref={frenzyCharge}
+          width={100}
+          height={100}
+          alt="frenzy charge"
+        />
+      </section>
+      <div className={styles.contactSection}>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/justin-low-111724184/"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedin size={'2em'} />
+        </a>
+        <a
+          target="_blank"
+          href="https://github.com/jlow64"
+          rel="noopener noreferrer"
+        >
+          <FaGithub size={'2em'} />
+        </a>
+      </div>
     </div>
   );
 };
