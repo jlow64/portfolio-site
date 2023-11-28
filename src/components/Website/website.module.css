@@ -11,7 +11,7 @@
   -ms-overflow-style: none;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 940px) {
   .htmlScreen {
     display: flex;
     flex-direction: column;
