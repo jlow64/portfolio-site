@@ -1,9 +1,8 @@
-.mainDesktop,
-.mainMobile {
+.htmlScreen {
   display: flex;
   flex-direction: column;
-  width: 1200px;
-  height: 810px;
+  width: 1350px;
+  height: 870px;
   border: none;
   border-radius: 30px;
   background: #fff;
@@ -12,20 +11,22 @@
   -ms-overflow-style: none;
 }
 
-.mainDesktop {
-  width: 1200px;
-  height: 810px;
-  border-radius: 30px;
+@media (max-width: 880px) {
+  .htmlScreen {
+    display: flex;
+    flex-direction: column;
+    width: 610px;
+    height: 1300px;
+    border: none;
+    border-radius: 80px;
+    background: #fff;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
 }
 
-.mainMobile {
-  width: 610px;
-  height: 1290px;
-  border-radius: 90px;
-}
-
-.mainDesktop::-webkit-scrollbar,
-.mainMobile::-webkit-scrollbar {
+.htmlScreen::-webkit-scrollbar {
   display: none;
 }
 

@@ -13,7 +13,6 @@ export default function Home() {
       className={`${styles.main} ${plusJakarta.variable} ${oswald.variable}`}
     >
       <Canvas
-        shadows
         camera={{
           fov: 45,
           near: 0.1,

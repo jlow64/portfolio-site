@@ -5,11 +5,7 @@ import { useLayoutEffect, useRef } from 'react';
 import { plusJakarta, oswald } from '@/styles/fonts';
 import styles from './website.module.css';
 
-type WebsiteProps = {
-  isDesktop: boolean;
-};
-
-export default function Website({ isDesktop }: WebsiteProps) {
+export default function Website() {
   const app = useRef(null);
   const scrollPrompt = useRef(null);
 
@@ -29,9 +25,7 @@ export default function Website({ isDesktop }: WebsiteProps) {
 
   return (
     <main
-      className={`${isDesktop ? styles.mainDesktop : styles.mainMobile} ${
-        plusJakarta.variable
-      } ${oswald.variable}`}
+      className={`${styles.htmlScreen} ${plusJakarta.variable} ${oswald.variable}`}
     >
       <section className={styles.pageContainer}>
         <p>Hi there,</p>

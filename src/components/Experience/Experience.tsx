@@ -10,16 +10,12 @@ import {
 import { useRef, Suspense } from 'react';
 import { Mesh } from 'three';
 import { useThree, useFrame } from '@react-three/fiber';
-import styles from './Experience.module.css';
-import Website from '@/components/Website';
+import Macbook from '@/components/Macbook';
+import Iphone from '@/components/Iphone';
 
 export default function Experience() {
-  const computerRef = useRef<Mesh>(null!);
-  const iphoneRef = useRef<Mesh>(null!);
   const catRef = useRef<Mesh>(null!);
 
-  const computer = useGLTF('./models/mac-draco.gltf');
-  const iphone = useGLTF('./models/iphone.gltf');
   const cat = useGLTF('./models/Dingus the cat.glb');
 
   const { viewport } = useThree();
@@ -38,7 +34,7 @@ export default function Experience() {
       <PresentationControls
         global
         rotation={[0.13, 0.1, 0]}
-        polar={[-0.4, 0.2]}
+        polar={isDesktop ? [-0.4, 0.2] : [-0.2, 0]}
         azimuth={[-1, 0.75]}
         config={{ mass: 2, tension: 400 }}
         snap={{ mass: 4, tension: 400 }}
@@ -54,47 +50,19 @@ export default function Experience() {
               position={[0, 0.55, -1.15]}
             />
             {/* Macbook */}
-            <primitive
+            <Macbook
               visible={isDesktop}
-              ref={computerRef}
-              object={computer.scene}
               position-y={-1.2}
               rotation-x={0.13}
               scale={viewport.width / 8}
-            >
-              {isDesktop && (
-                <Html
-                  className={styles.htmlScreen}
-                  transform
-                  distanceFactor={1}
-                  rotation-x={-0.26}
-                  position={[0.0, 1.53, -1.4]}
-                >
-                  <Website isDesktop={isDesktop} />
-                </Html>
-              )}
-            </primitive>
-
+            />
             {/* iphone */}
-            <primitive
+            <Iphone
               visible={!isDesktop}
-              ref={iphoneRef}
-              object={iphone.scene}
               position-y={-1.2}
               rotation-x={-0.3}
               rotation-y={-0.2}
-            >
-              {!isDesktop && (
-                <Html
-                  className={styles.htmlScreen}
-                  transform
-                  distanceFactor={1}
-                  position={[0.15, 1.36, 0.09]}
-                >
-                  <Website isDesktop={isDesktop} />
-                </Html>
-              )}
-            </primitive>
+            />
 
             {/* Cat */}
             <primitive
