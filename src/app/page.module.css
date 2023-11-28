@@ -6,4 +6,5 @@
   width: 100dvw;
   flex-direction: row;
   justify-content: space-evenly;
+  overflow: hidden;
 }
