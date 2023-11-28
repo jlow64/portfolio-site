@@ -1,0 +1,47 @@
+.mainDesktop,
+.mainMobile {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  height: 810px;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mainDesktop {
+  width: 1200px;
+  height: 810px;
+  border-radius: 30px;
+}
+
+.mainMobile {
+  width: 610px;
+  height: 1290px;
+  border-radius: 90px;
+}
+
+.mainDesktop::-webkit-scrollbar,
+.mainMobile::-webkit-scrollbar {
+  display: none;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: fit-content;
+  flex: 2;
+  padding: 12%;
+  font-family: var(--font-oswald);
+  font-size: 2rem;
+  font-weight: 500;
+  gap: 1rem;
+}
+
+.cv {
+  min-height: 100vh;
+  min-width: 100%;
+}
