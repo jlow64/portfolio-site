@@ -2,8 +2,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100svh;
+  width: 100svw;
   flex-direction: row;
   justify-content: space-evenly;
   overflow: hidden;
