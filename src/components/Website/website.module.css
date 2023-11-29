@@ -4,7 +4,7 @@
   width: 1350px;
   height: 870px;
   border: none;
-  border-radius: 30px;
+  border-radius: 30px !important;
   background: #fff;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -18,7 +18,7 @@
     width: 610px;
     height: 1300px;
     border: none;
-    border-radius: 80px;
+    border-radius: 80px !important;
     background: #fff;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -28,6 +28,13 @@
 
 .htmlScreen::-webkit-scrollbar {
   display: none;
+}
+
+.contentEmbed {
+  position: relative;
+  /* display: none; */
+
+  overflow: scroll;
 }
 
 .pageContainer {
